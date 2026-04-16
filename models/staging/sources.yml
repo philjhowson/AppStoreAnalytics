@@ -1,0 +1,13 @@
+#Defines raw source tables in BigQuery dataset 'astrafy'
+
+version: 2
+
+sources:
+  - name: appstore
+    schema: appstore
+    tables:
+      - name: categories
+      - name: category_ranking
+      - name: keywords
+      - name: metrics
+      - name: ratings
