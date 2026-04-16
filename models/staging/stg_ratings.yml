@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_ratings
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - app
+              - date
+              - country
+              - device
+              - rating_type
+    columns:
+      - name: app
+        tests: [not_null]
+
+      - name: date
+        tests: [not_null]
+
+      - name: rating_type
+        tests: [not_null]
+
+      - name: country
+        tests: [not_null]
+
+      - name: device
+        tests: [not_null]
