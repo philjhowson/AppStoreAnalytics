@@ -18,7 +18,7 @@ select m.app,
   m.device,
   m.metric,
   m.value,
-  round(m.value / c.value * 100, 2) as pct_total
+  round(m.value / c.value, 4) as pct_total
 from {{ref('stg_metrics')}} m
 join category_totals c
   using(date, device, metric)
