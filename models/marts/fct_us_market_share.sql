@@ -5,7 +5,7 @@ with category_totals as (
     metric,
     value
   from {{ref('stg_categories')}}
-  where country = 'us'
+where country = '{{var("target_country")}}'
     and (
       (device = 'android' and category = 'dating')
       or
@@ -22,4 +22,4 @@ select m.app,
 from {{ref('stg_metrics')}} m
 join category_totals c
   using(date, device, metric)
-where country = 'us'
+where country = '{{var("target_country")}}'

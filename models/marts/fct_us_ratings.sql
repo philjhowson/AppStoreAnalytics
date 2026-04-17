@@ -3,5 +3,5 @@ select app,
   device,
   value
 from {{ref('stg_ratings')}}
-where country = 'us'
+where country = '{{var("target_country")}}'
   and rating_type = 'avg_rating'
