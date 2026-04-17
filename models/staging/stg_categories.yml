@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_categories
+
+    columns:
+      - name: category
+        tests: [not_null]
+
+      - name: date
+        tests: [not_null]
+
+      - name: country
+        tests: [not_null]
+
+      - name: device
+        tests: [not_null]
+
+      - name: metric
+        tests: [not_null]
+
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - category
+              - date
+              - country
+              - device
+              - metric
