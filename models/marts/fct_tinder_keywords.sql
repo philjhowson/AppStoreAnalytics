@@ -1,4 +1,5 @@
 select date,
+  country,
   device,
   keyword,
   metric,

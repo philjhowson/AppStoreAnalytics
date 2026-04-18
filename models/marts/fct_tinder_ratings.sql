@@ -1,4 +1,5 @@
 select date,
+  country,
   device,
   rating_type,
   value
