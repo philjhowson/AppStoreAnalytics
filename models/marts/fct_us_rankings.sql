@@ -1,12 +1,8 @@
 select app,
   date,
-  category,
   device,
+  category,
+  store_type,
   rank
-from {{ref('stg_category_ranking')}}
+from {{ref("int_rankings")}}
 where country = '{{var("target_country")}}'
-  and (
-    category = 'dating'
-    or category = 'all'
-    or category = 'lifestyle'
-  )

@@ -4,8 +4,5 @@ select date,
   category,
   store_type,
   rank
-from {{ref("stg_category_ranking")}}
+from {{ref("int_rankings")}}
 where app = '{{var("target_app")}}'
-  and (category = 'all'
-    or category = 'dating'
-    or category = 'lifestyle')

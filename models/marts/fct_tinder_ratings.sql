@@ -2,9 +2,11 @@ with totals as (
     select date,
       country,
       device, 
-      value as total_ratings
+      sum(value) as total_ratings
     from {{ref('stg_ratings')}}
-    where rating_type = 'rating_total'
+    where rating_type != 'rating_total'
+        and app = '{{var("target_app")}}'
+    group by date, country, device
 )
 
 select r.date,
@@ -16,5 +18,5 @@ select r.date,
   from {{ref('stg_ratings')}} r
 join totals t
   using (date, country, device)
-where r.rating_type != 'total_rating'
+where r.rating_type != 'rating_total'
     and r.app = '{{var("target_app")}}'
