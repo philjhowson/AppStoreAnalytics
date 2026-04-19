@@ -63,93 +63,74 @@ keywords to Hinge and Bumble, indicating a gap between acquisition volume and us
 
 #### Supporting Data
 
-Market Position & Scale
+##### Market Position & Scale
 
-Tinder:
+Tinder:<br>
 
-• 12%+ of total dating app revenue
-• 9.8M revenue
-• 5% of total market downloads
-• Leads all competitors in total downloads
-• 0.76 visibility score
+• 12%+ of total dating app revenue<br>
+• 9.8M revenue<br>
+• 5% of total market downloads<br>
+• Leads all competitors in total downloads<br>
+• 0.76 visibility score<br>
 
-Tinder is the clear market leader in scale.
+Tinder is the clear market leader in scale.<br>
 
-User Sentiment:
+User Sentiment:<br>
 
-• 2nd highest rating
-• Bumble leads slightly is user sentiment
+• 2nd highest rating<br>
+• Bumble leads slightly is user sentiment<br>
 
 Tinder has strong positive sentiment, but not category-leading satisfaction. Polarization user ratings
 indicates partial mismatch between user expectations and user experiences.
 
-Keyword & Discoverability Performance
+##### Keyword & Discoverability Performance
 
-• Tinder ranks highest on more generic terms such as "online dating" and "dating app."
-• Tinder lags on more intent-driven search terms such as “find love”, “meet people”, “chat app”
+• Tinder ranks highest on more generic terms such as "online dating" and "dating app."<br>
+• Tinder lags on more intent-driven search terms such as “find love”, “meet people”, “chat app”<br>
 
-Competitors outperform Tinder in relationship-oriented and social intent queries.
+Competitors outperform Tinder in relationship-oriented and social intent queries.<br>
 
-Category Rankings
+##### Category Rankings
 
-• #1 in Dating category
-• Top rank in US “All” category (vs competitors)
-• Tinder ranks lowest among all four apps in lifestyle.
-• CMB ranks highest in Lifestyle
+• #1 in Dating category<br>
+• Top rank in US “All” category (vs competitors)<br>
+• Tinder ranks lowest among all four apps in lifestyle<br>
+• CMB ranks highest in Lifestyle<br>
 
-Tinder is the ranked 1 in dating, but lower on more intent driven searches.
+Tinder is the ranked 1 in dating, but lower on more intent driven searches.<br>
 
-Tinder dominates:
+Tinder dominates:<br>
 
-• downloads
-• revenue
-• core "dating app" keywords
+• downloads<br>
+• revenue<br>
+• core "dating app" keywords<br>
 
-But loses ground in:
+But loses ground in:<br>
 
-• Emotionally-driven search intent
-• Relationship-oriented positioning
+• Emotionally-driven search intent<br>
+• Relationship-oriented positioning<br>
 
-Suggests a brand perception gap:
+Suggests a brand perception gap:<br>
 
-• Tinder = casual / broad
-• Hinge/Bumble = intentional / relationship-focused
+• Tinder = casual / broad<br>
+• Hinge/Bumble = intentional / relationship-focused<br>
 
 Competitors beat Tinder on semantic positioning. Tinder is not positioned as a "lifestyle" or 
-"relationship experience" app. Opportunity to expand perception beyond "dating utility."
+"relationship experience" app. Opportunity to expand perception beyond "dating utility." Tinder has
+Strong but not leading user satisfaction and gaps in keyword ranking positions. This indicates that 
+users may prefer competitor experience for deeper connections Tinder wins acquisition, not necessarily
+preference.
 
-4. Strong but Not Leading User Satisfaction
-Slightly behind Bumble in rating
-Combined with keyword gaps:
-
-Suggests:
-
-users may prefer competitor experience for deeper connections
-Tinder wins acquisition, not necessarily preference
 #### Actionable Recommendations
-Keyword & ASO Strategy
-Expand keyword coverage into:
-“find love”
-“meet people”
-relationship-focused queries
-Rebalance ASO strategy from:
-generic acquisition → intent-driven acquisition
-Product & Brand Positioning
-Test messaging shifts:
-from “dating app” → “connection platform”
-Highlight:
-success stories
-relationship outcomes
-Compete more directly with Hinge/Bumble positioning
-Category Expansion
-Invest in Lifestyle category positioning
-improve ranking signals (engagement, retention)
-align product messaging with lifestyle use cases
-Experience Optimization
-Close rating gap vs Bumble:
-improve onboarding quality
-reduce low-rating drivers (spam, UX friction)
-Focus on high-intent user journeys
+
+Tinder should expand its keyword & ASO strategy and expand coverage into intent-focused searches. Balance
+the ASO strategy from a more generic "dating" strategy to include intent based queries. Tinder can also
+test messaging shift from just a dating app to a connection based platform to attract users that have
+more intent based dating strategies. They can achieve this by highlighting success stories and relationship
+outcomes to compete more directly with Bumble and Hinge. Tinder should also expand category positioning
+to lifestyle and other categories outside of dating to achieve a more balanced profile. This can be done
+by aligning messaging with more lifestyle use cases. Additionally, finding out the primary reason for low
+ratings to adjust the app to user experience could improve user journeys and improve ratings.
 
 #### Conclusion
 
@@ -170,41 +151,41 @@ while Japan underperforms across rankings and engagement signals, indicating mis
 
 #### Supporting Data
 
-Market Performance
+##### Market Performance
 
-US:
+US:<br>
 
-• Highest downloads and discoverability
-• Strongest share of 5★ ratings
+• Highest downloads and discoverability<br>
+• Strongest share of 5★ ratings<br>
 
-Germany:
+Germany:<br>
 
-• Highest overall ranking in “All” category
-• Lower volume but strong relative performance
+• Highest overall ranking in “All” category<br>
+• Lower volume but strong relative performance<br>
 
-Japan:
+Japan:<br>
 
-• Significantly lower rankings in “All” category
-• Weakest overall positioning
+• Significantly lower rankings in “All” category<br>
+• Weakest overall positioning<br>
 
-User Sentiment Patterns
+##### User Sentiment Patterns
 
-• Average rating: 3.78
-• 5★ ratings dominate in the US
-• Across all countries 1★ ratings are the second most frequent
+• Average rating: 3.78<br>
+• 5★ ratings dominate in the US<br>
+• Across all countries 1★ ratings are the second most frequent<br>
 
-The disparity in ratings indicates polarized user sentiment. 
+The disparity in ratings indicates polarized user sentiment.<br>
 
-Discoverability & Ranking
+##### Discoverability & Ranking
 
-• US leads in discoverability
-• Germany achieves top ranking efficiency
-• Japan shows low visibility and ranking performance
+• US leads in discoverability<br>
+• Germany achieves top ranking efficiency<br>
+• Japan shows low visibility and ranking performance<br>
 
 There is a disparity in the keyword optimization strategy across localizations. US has the highest
 discoverability, while both DE and JP, but especially JP, lags.
 
-KPI Context
+#### KPI Context
 
 Avg Rank: 1.82
 Revenue: 12M+
@@ -212,60 +193,60 @@ Installs: 500K+
 
 #### Interpretation
 
-This analysis highlights three structural dynamics:
+This analysis highlights three structural dynamics:<br>
 
 1. US = Scale + Strong Product-Market Fit
 
-High downloads + strong 5★ ratings suggest:
+High downloads + strong 5★ ratings suggest:<br>
 
-• Effective acquisition
-• Strong user experience alignment
+• Effective acquisition<br>
+• Strong user experience alignment<br>
 
 2. Germany = High Efficiency Market
 
-Top rankings despite lower volume indicate:
+Top rankings despite lower volume indicate:<br>
 
-• Effective keyword positioning
-• Strong relative competitiveness
+• Effective keyword positioning<br>
+• Strong relative competitiveness<br>
 
 This provides a potential blueprint for scaling efficiently in other markets.
 
 3. Japan = Localization Gap
 
-Low rankings and weaker sentiment suggest:
+Low rankings and weaker sentiment suggest:<br>
 
-• Cultural mismatch in product experience
-• Insufficient localized ASO strategy
-• Stronger local competition
+• Cultural mismatch in product experience<br>
+• Insufficient localized ASO strategy<br>
+• Stronger local competition<br>
 
 4. Cross-Market Risk: Polarized Ratings
 
-High frequency of 1★ ratings across all regions indicates:
+High frequency of 1★ ratings across all regions indicates:<br>
 
-• Inconsistent user experience
-• Friction points (onboarding, monetization, or expectations)
+• Inconsistent user experience<br>
+• Friction points (onboarding, monetization, or expectations)<br>
 
 #### Actionable Recommendations
 
 1. Localization Strategy
 
-Deep-dive JP market:
+JP market:<br>
 
-• Localize keywords (native language focus)
-• Adapt product experience to cultural norms
-• Audit and localize App Store creatives and messaging
+• Localize keywords (native language focus)<br>
+• Adapt product experience to cultural norms<br>
+• Audit and localize App Store creatives and messaging<br>
 
 2. Growth & ASO Optimization
 
-• Expand keyword coverage beyond English (especially JP)
-• Replicate Germany’s ranking strategy into similar EU markets
-• Focus US strategy on efficiency (conversion/retention), not just scale
+• Expand keyword coverage beyond English (especially JP)<br>
+• Replicate Germany’s ranking strategy into similar EU markets<br>
+• Focus US strategy on efficiency (conversion/retention), not just scale<br>
 
 3.  Product & Experience Improvements
 
-Analyze 1★ reviews to identify recurring issues
-Improve onboarding and early user experience
-Test localized UX flows to reduce user friction
+• Analyze 1★ reviews to identify recurring issues<br>
+• Improve onboarding and early user experience<br>
+• Test localized UX flows to reduce user friction<br>
 
 #### Conclusion
 
