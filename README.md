@@ -20,6 +20,6 @@ underperforming in high-growth international markets and losing ground to locall
 In this project I address both of these issues using AppTweak metrics to better understand the competitive landscape and
 localization issues and provide insights into business strategies to drive growth.
 
-## Workflow
+## Analytics Workflow
 
-
+![Analytics Workflow](images/workflow.png)
