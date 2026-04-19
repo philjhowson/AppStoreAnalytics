@@ -23,3 +23,6 @@ localization issues and provide insights into business strategies to drive growt
 ## Analytics Workflow
 
 ![Analytics Workflow](images/workflow.png)
+
+The complete workflow and process automation involves a cloud based scheduler to trigger AppTweak API calls on a daily/weekly
+schedule. Data transformation and quality tests are performed with Python. 
