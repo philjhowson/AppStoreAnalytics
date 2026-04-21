@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import pandas as pd
 import requests
 
 def save_json(data, path: str, filename: str):
@@ -19,7 +20,7 @@ def save_json(data, path: str, filename: str):
 def request_data(url: str, headers: dict, params: dict, path: str) -> dict:
     """
     Makes requests and returns the response as a json.
-    Requires target url, required headers (as dict), paramters
+    Requires target url, required headers (as dict), parameters
     (as a dict), and the file path (e.g., 'path/filename') to
     save the data.
     """
@@ -135,7 +136,7 @@ def build_category_params(start_date: str, end_date: str,
 
     return category_params
 
-def query_metrics(params: dict, url: str, headers: dict) -> dict:
+def query_metrics(params: dict, url: str, headers: dict, output: str) -> dict:
     """
     Queries AppTweak API for multiple metric parameter sets and saves
     raw responses.
@@ -144,57 +145,194 @@ def query_metrics(params: dict, url: str, headers: dict) -> dict:
     and stores both individual and compiled JSON outputs for
     downstream processing.
     """
-    metrics_output = {}
+    output = {}
 
-    for key in metrics_params.keys():
-
-        print(f"Fetching data for {key}...")
-
-        data = request_data(keywords_ranking_url, headers, metrics_params[key])
-
-        if data:
-            metrics_output[key] = data
-            save_json(data, '../data/raw/metrics/single', f"{key}_metrics.json")
-        else:
-            print(f"Request for {key} metrics produced no results!")
-
-    save_json(metrics_output, '../data/raw/metrics/compiled', 'all_metrics.json')
-
-    return metrics_output
-
-
-def query_keywords(params: dict, url: str, headers: dict) -> dict:
-    """
-    Queries AppTweak API for multiple metric parameter sets and saves
-    raw responses.
-
-    Iterates over metric configurations, requests data from the API,
-    and stores both individual and compiled JSON outputs for
-    downstream processing.
-    """
-    keywords_output = {}
-
-    for key in keywords_params.keys():
+    for key in params.keys():
 
         print(f"Fetching data for {key}...")
 
-        data = request_data(keywords_ranking_url, headers, keywords_params[key])
+        data = request_data(url, headers, params[key])
 
         if data:
-            keywords_output[key] = data
-            save_json(data, '../data/raw/keywords/single', f"{key}_keywords.json")
+            output[key] = data
+            save_json(data, f"data/raw/{output}/single", f"{key}_{output}.json")
         else:
             print(f"Request for {key} metrics produced no results!")
 
-    save_json(keywords_output, '../data/raw/keywords/compiled', 'all_keywords.json')
+    save_json(output, f"data/raw/{output}/compiled", f"all_{output}.json")
 
-    return keywords_output
+    return output
 
+import pandas as pd
 
+def parse_apptweak_metrics(metrics_output: dict) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """
+    Parses Apptweak app metrics API response into two DataFrames:
+    - metrics_df: time series values for non-rating metrics (e.g. downloads, revenue)
+    - ratings_df: rating distribution breakdown over time (1–5 star counts + average)
 
+    Splits data by app, country, and device.
+    Returns a dict with keys 'metrics' and 'ratings'.
+    """
+    metrics_rows = []
+    ratings_rows = []
 
+    for run_key, payload in metrics_output.items():
 
+        country, device = run_key.split('_')
+        result = payload['result']
 
+        for app, metrics in result.items():
 
+            for metric_name, series in metrics.items():
 
+                if metric_name == 'ratings':
+
+                    for point in series:
+                        breakdown = point.get('breakdown')
+
+                        if not breakdown:
+                            continue  # skip empty safely
+
+                        ratings_rows.append({
+                            'date': point['date'],
+                            'app': app,
+                            'country': country,
+                            'device': device,
+                            'avg_rating': breakdown.get('avg'),
+                            'rating_1': breakdown.get('1'),
+                            'rating_2': breakdown.get('2'),
+                            'rating_3': breakdown.get('3'),
+                            'rating_4': breakdown.get('4'),
+                            'rating_5': breakdown.get('5'),
+                            'rating_total': breakdown.get('total')
+                        })
+
+                else:
+
+                    for point in series:
+                        metrics_rows.append({
+                            'date': point['date'],
+                            'app': app,
+                            'country': country,
+                            'device': device,
+                            'metric': metric_name,
+                            'value': point['value'],
+                            'precision': point.get('precision')
+                        })
+
+    metrics_df = pd.DataFrame(metrics_rows)
+    ratings_df = pd.DataFrame(ratings_rows)
+
+    return {'metrics': metrics_df, 'ratings': ratings_df}
+
+def parse_apptweak_keywords(keywords_output: dict) -> pd.DataFrame:
+    """
+    Parses Apptweak keyword rankings API response into a single DataFrame.
+
+    Extracts time series keyword metrics (e.g. rank, installs) per app, country, and device.
+    Each row represents a keyword-level metric value at a specific date.
+    """
+    rows = []
+
+    for run_key, payload in keywords_output.items():
+        
+        country, device = run_key.split('_')
+
+        result = payload['result']
+
+        for app, keywords in result.items():
+
+            for keyword, metrics in keywords.items():
+
+                for metric_name, series in metrics.items():
+
+                    for point in series:
+
+                        rows.append({
+                            'date': point['date'],
+                            'app': app,
+                            'country': country,
+                            'device': device,
+                            'keyword': keyword,
+                            'metric': metric_name,
+                            'value': point['value'],
+                            'effective_value': point.get('effective_value')
+                        })
+
+    keywords_df = pd.DataFrame(rows)
+
+    return keywords_df
+
+def parse_apptweak_category_ranking(category_ranking_output: dict) -> pd.DataFrame:
+    """
+    Parses Apptweak category ranking API response into a DataFrame.
+
+    Extracts app ranking positions across categories over time, split by country and device.
+    Each row represents a ranking snapshot for a given category and chart type.
+    """
+    rows = []
+
+    for run_key, payload in category_ranking_output.items():
+
+        country, device = run_key.split('_')
+
+        result = payload['result']
+
+        for app, app_data in result.items():
+
+            rankings = app_data['rankings']
+
+            for r in rankings:
+
+                for v in r['value']:
+
+                    rows.append({
+                        'date': v['fetch_date'],
+                        'app': app,
+                        'country': country,
+                        'device': device,
+                        'category_name': v['category_name'].lower(),
+                        'chart_type': v['chart_type'],
+                        'rank': v['rank'],
+                        'fetch_depth': v['fetch_depth']
+                    })
+                    
+    category_ranking_df = pd.DataFrame(rows)
+
+    return category_ranking_df
+
+def parse_apptweak_categories(categories_output: dict) -> pd.DataFrame:
+    """
+    Parses Apptweak category metrics API response into a DataFrame.
+
+    Extracts category-level performance metrics across countries and devices.
+    Each row represents a time series value for a given category metric.
+    """
+    rows = []
+
+    for run_key, payload in categories_output.items():
+
+        device, metric = run_key.split('_')
+
+        result = payload['result']
+
+        for category, countries in result.items():
+
+            for country, series in countries.items():
+
+                for point in series:
+
+                    rows.append({
+                        'date': point['date'],
+                        'category': category.lower(),
+                        'country': country,
+                        'device': device,
+                        'metric': metric,
+                        'value': point.get(metric) 
+                    })
+
+    categories_df = pd.DataFrame(rows)
+
+    return categories_df
 
