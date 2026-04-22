@@ -82,7 +82,7 @@ def prepare_and_request_apptweak(metrics: bool, keywords: bool, categories: bool
     if rankings:
         category_rankings_output = elt_utils.query_metrics(base_params,
                                                   'https://public-api.apptweak.com/api/public/store/apps/category-rankings/history.json',
-                                                  headers, 'category')
+                                                  headers, 'categories')
         
         category_ranking_df = elt_utils.parse_apptweak_category_ranking(category_rankings_output)
         category_ranking_df['app'] = category_ranking_df['app'].replace(config.app_map)
