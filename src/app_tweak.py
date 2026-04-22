@@ -4,6 +4,7 @@ import os
 import pandas as pd
 from config import config
 from dotenv import load_dotenv
+from pathlib import Path
 
 def prepare_and_request_apptweak(metrics: bool, keywords: bool, categories: bool, rankings: bool):
     """
@@ -42,6 +43,9 @@ def prepare_and_request_apptweak(metrics: bool, keywords: bool, categories: bool
                                                  headers, 'metrics')
 
         metrics = elt_utils.parse_apptweak_metrics(metrics_output)
+
+        Path('data/processed/dataframes').mkdir(parents = True, exist_ok = True)
+
         metrics['metrics'].to_csv('data/processed/dataframes/metrics_df.csv')
         metrics['ratings']['app'] = metrics['ratings']['app'].replace(config.app_map)
         metrics['ratings'].to_csv('data/processed/dataframes/ratings_df.csv')
@@ -56,6 +60,9 @@ def prepare_and_request_apptweak(metrics: bool, keywords: bool, categories: bool
         
         keywords_df = elt_utils.parse_apptweak_keywords(keywords_output)
         keywords_df['app'] = keywords_df['app'].replace(config.app_map)
+
+        Path('data/processed/dataframes').mkdir(parents = True, exist_ok = True)
+
         keywords_df.to_csv('data/processed/dataframes/keywords_df.csv')  
 
     if categories:
@@ -67,22 +74,25 @@ def prepare_and_request_apptweak(metrics: bool, keywords: bool, categories: bool
                                                   headers, 'category')
         
         categories_df = elt_utils.parse_apptweak_categories(categories_output)
+
+        Path('data/processed/dataframes').mkdir(parents = True, exist_ok = True)
+
         categories_df.to_csv('data/processed/dataframes/categories_df.csv') 
 
     if rankings:
-        category_rankings_params = elt_utils.build_category_params(config.start_date, config.end_date, config.countries, config.categories_map, config.category_metrics)
-        elt_utils.save_json(category_rankings_params, 'data/parameters', 'category_rankings_params')
-
-        category_rankings_output = elt_utils.query_metrics(category_rankings_params,
-                                                  'https://public-api.apptweak.com/api/public/store/categories/metrics',
+        category_rankings_output = elt_utils.query_metrics(base_params,
+                                                  'https://public-api.apptweak.com/api/public/store/apps/category-rankings/history.json',
                                                   headers, 'category')
         
         category_ranking_df = elt_utils.parse_apptweak_category_ranking(category_rankings_output)
         category_ranking_df['app'] = category_ranking_df['app'].replace(config.app_map)
         category_ranking_df['category_name'] = category_ranking_df['category_name'].replace({'category all' : 'all'})
+
+        Path('data/processed/dataframes').mkdir(parents = True, exist_ok = True)
+
         category_ranking_df.to_csv('data/processed/dataframes/category_ranking_df.csv') 
 
-if '__name__' == '__main__':
+if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--metrics', default = True)

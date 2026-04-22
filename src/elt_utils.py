@@ -14,10 +14,10 @@ def save_json(data, path: str, filename: str):
 
     file_path = path / filename
 
-    with open(file_path, 'w', encoding = 'utf-8') as f:
+    with open(f"{file_path}.json", 'w', encoding = 'utf-8') as f:
         json.dump(data, f, indent = 2, ensure_ascii = False)
 
-def request_data(url: str, headers: dict, params: dict, path: str) -> dict:
+def request_data(url: str, headers: dict, params: dict) -> dict:
     """
     Makes requests and returns the response as a json.
     Requires target url, required headers (as dict), parameters
@@ -32,7 +32,6 @@ def request_data(url: str, headers: dict, params: dict, path: str) -> dict:
         return None
 
     data = response.json()
-    save_json(data, f"{path}.json")
 
     return data
 
@@ -136,7 +135,7 @@ def build_category_params(start_date: str, end_date: str,
 
     return category_params
 
-def query_metrics(params: dict, url: str, headers: dict, output: str) -> dict:
+def query_metrics(params: dict, url: str, headers: dict, filename: str) -> dict:
     """
     Queries AppTweak API for multiple metric parameter sets and saves
     raw responses.
@@ -155,11 +154,11 @@ def query_metrics(params: dict, url: str, headers: dict, output: str) -> dict:
 
         if data:
             output[key] = data
-            save_json(data, f"data/raw/{output}/single", f"{key}_{output}.json")
+            save_json(data, f"data/raw/{filename}/single", f"{key}_{filename}.json")
         else:
             print(f"Request for {key} metrics produced no results!")
 
-    save_json(output, f"data/raw/{output}/compiled", f"all_{output}.json")
+    save_json(output, f"data/raw/{filename}/compiled", f"all_{filename}.json")
 
     return output
 
