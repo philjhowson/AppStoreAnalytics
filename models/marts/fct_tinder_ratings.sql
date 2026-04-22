@@ -7,8 +7,8 @@ select
 
     case 
         when rating_type != 'avg_rating'
-        then value / SUM(value) OVER (
-            PARTITION BY date, country, device
+        then value / sum(value) over (
+            partition BY date, country, device
         )
     end as pct_ratings
 
