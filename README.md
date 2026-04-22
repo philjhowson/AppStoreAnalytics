@@ -71,7 +71,7 @@ positioning and offering a potential model for scalable growth. In contrast, Jap
 rankings, and engagement metrics, pointing to clear localization gaps. These likely stem from a combination of
 cultural misalignment, insufficiently localized keyword strategies, and stronger domestic competition.
 
-A cross-market pattern of polarized user ratings—particularly the high frequency of 1★ reviews—suggests
+A cross-market pattern of polarized user ratings, particularly the high frequency of 1★ reviews, suggests
 inconsistencies in user experience. This represents a risk to long-term retention and brand perception, reinforcing
 the gap between acquisition success and sustained user value.
 
