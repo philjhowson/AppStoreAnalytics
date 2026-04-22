@@ -1,15 +1,12 @@
-<<<<<<< HEAD
-# you shouldn't commit these into source control
-# these are the default directory names, adjust/add to fit your needs
+
 target/
 dbt_packages/
 logs/
 dbt_internal_packages/
-=======
 data/
 venv/
 secrets/
 src/__pycache__/
 
 .env
->>>>>>> e4f8a85a86b49b261eb374e665b758499e8ae997
+
