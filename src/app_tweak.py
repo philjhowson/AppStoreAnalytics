@@ -98,13 +98,10 @@ def prepare_and_request_apptweak(metrics: bool, keywords: bool, categories: bool
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
-    def str_to_bool(v):
-        return str(v).lower() == "true"
-
-    parser.add_argument('--metrics', type = str_to_bool, default = True)
-    parser.add_argument('--keywords', type = str_to_bool, default = True)
-    parser.add_argument('--categories', type = str_to_bool, default = True)
-    parser.add_argument('--rankings', type = str_to_bool, default = True)    
+    parser.add_argument('--metrics', type = elt_utils.str_to_bool, default = True)
+    parser.add_argument('--keywords', type = elt_utils.str_to_bool, default = True)
+    parser.add_argument('--categories', type = elt_utils.str_to_bool, default = True)
+    parser.add_argument('--rankings', type = elt_utils.str_to_bool, default = True)    
 
     args = parser.parse_args()
 

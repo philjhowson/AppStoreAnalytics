@@ -3,6 +3,13 @@ from pathlib import Path
 import pandas as pd
 import requests
 
+def str_to_bool(v):
+    """
+    Turns 'true, True, false, False' into the
+    correct type, bool, when parsing argparse.
+    """
+    return str(v).lower() == "true"
+
 def save_json(data, path: str, filename: str):
     """
     Save Python object as JSON.
