@@ -46,9 +46,10 @@ def prepare_and_request_apptweak(metrics: bool, keywords: bool, categories: bool
 
         Path('data/processed/dataframes').mkdir(parents = True, exist_ok = True)
 
-        metrics['ratings']['app'] = metrics['ratings']['app'].replace(config.app_map)
         metrics['metrics'].to_csv('data/processed/dataframes/metrics_df.csv')
-
+        metrics['ratings']['app'] = metrics['ratings']['app'].replace(config.app_map)
+        metrics['ratings'].to_csv('data/processed/dataframes/ratings_df.csv')
+    
     if keywords:
         keywords_params = elt_utils.build_keywords_params(base_params, config.keywords, config.keywords_metrics)
         elt_utils.save_json(keywords_params, 'data/parameters', 'keywords_params')
