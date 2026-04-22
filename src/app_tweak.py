@@ -51,6 +51,7 @@ def prepare_and_request_apptweak(metrics: bool, keywords: bool, categories: bool
         metrics['ratings'].to_csv('data/processed/dataframes/ratings_df.csv')
     
     if keywords:
+        print('Preparing parameters for keywords call...')
         keywords_params = elt_utils.build_keywords_params(base_params, config.keywords, config.keywords_metrics)
         elt_utils.save_json(keywords_params, 'data/parameters', 'keywords_params')
 
@@ -66,6 +67,7 @@ def prepare_and_request_apptweak(metrics: bool, keywords: bool, categories: bool
         keywords_df.to_csv('data/processed/dataframes/keywords_df.csv')  
 
     if categories:
+        print('Preparing parameters for categories call...')
         categories_params = elt_utils.build_category_params(config.start_date, config.end_date, config.countries, config.categories_map, config.category_metrics)
         elt_utils.save_json(categories_params, 'data/parameters', 'category_params')
 
@@ -80,6 +82,7 @@ def prepare_and_request_apptweak(metrics: bool, keywords: bool, categories: bool
         categories_df.to_csv('data/processed/dataframes/categories_df.csv') 
 
     if rankings:
+        print('Preparing parameters for category rankings call...')
         category_rankings_output = elt_utils.query_metrics(base_params,
                                                   'https://public-api.apptweak.com/api/public/store/apps/category-rankings/history.json',
                                                   headers, 'categories')
@@ -95,10 +98,13 @@ def prepare_and_request_apptweak(metrics: bool, keywords: bool, categories: bool
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--metrics', default = True)
-    parser.add_argument('--keywords', default = True)
-    parser.add_argument('--categories', default = True)
-    parser.add_argument('--rankings', default = True)    
+    def str_to_bool(v):
+        return str(v).lower() == "true"
+
+    parser.add_argument('--metrics', type = str_to_bool, default = True)
+    parser.add_argument('--keywords', type = str_to_bool, default = True)
+    parser.add_argument('--categories', type = str_to_bool, default = True)
+    parser.add_argument('--rankings', type = str_to_bool, default = True)    
 
     args = parser.parse_args()
 
