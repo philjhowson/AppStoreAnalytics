@@ -341,3 +341,28 @@ as uniqueness, null checks, and referential relationships, alongside custom busi
 pipeline monitoring and alerting ensure that failures are detected and addressed quickly, while reconciliation checks
 and historical comparisons help identify anomalies over time. This layered approach ensures both accuracy and robustness
 as the system scales.
+
+## Project Organization
+    root
+    ├── data # not uploaded
+    │   ├── parameters # contains .json files of all generated parameters
+    │   ├── processed # contains folder with output dataframes   
+    │   └── raw # contains folders with raw output .json files for each query
+    ├── images # images used in this readme.md
+    ├── models
+    │   ├── intermediate # contains the .sql files used to generate intermediate tables
+    │   ├── marts # contains the .sql files used to generate fact tables
+    │   └── staging # contains the .sql files used to generate staging tables
+    ├── notebooks # contains notebooks used to prototype python
+    ├── secrets # contains credentials, not uploaded
+    ├── src
+    │   ├── app_tweak.py # queries apptweak and formats data for upload to cloud
+    │   ├── config.py # configures the queries to be run
+    │   └── elt_utils.py # utils used to run app_tweak.py
+    ├── .env # stores API keys and other private information, not uploaded
+    ├── .gitignore
+    ├── dbt_project.yml
+    ├── package-lock.yml
+    ├── packages.yml
+    ├── README.md
+    └── requirements.txt
