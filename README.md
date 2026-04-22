@@ -252,7 +252,7 @@ JP market:<br>
 
 Tinder’s performance is driven by strong scale in the US and efficient ranking in Germany,
 but growth is constrained by localization gaps and inconsistent user experience across markets.
-Addressing these issues—particularly in Japan represents a key opportunity to improve both
+Addressing these issues, particularly in Japan, represents a key opportunity to improve both
 acquisition efficiency and user satisfaction globally.
 
 ## Reusability & Scaling
