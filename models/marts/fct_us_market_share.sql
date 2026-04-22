@@ -10,5 +10,5 @@ select
     ),
     4
   ) as pct_total
-from {{ ref('stg_metrics') }}
-where country = '{{ var("target_country") }}'
+from {{ref('stg_metrics')}}
+where country = '{{var("target_country")}}'
