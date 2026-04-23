@@ -71,9 +71,9 @@ positioning and offering a potential model for scalable growth. In contrast, Jap
 rankings, and engagement metrics, pointing to clear localization gaps. These likely stem from a combination of
 cultural misalignment, insufficiently localized keyword strategies, and stronger domestic competition.
 
-A cross-market pattern of polarized user ratings, particularly the high frequency of 1★ reviews, suggests
-inconsistencies in user experience. This represents a risk to long-term retention and brand perception, reinforcing
-the gap between acquisition success and sustained user value.
+A cross-market pattern of polarized user ratings, particularly the fact that the second highest frequency rating
+is 1★, suggests inconsistencies in user experience. This represents a risk to long-term retention and brand
+perception, reinforcing the gap between acquisition success and sustained user value.
 
 To address these challenges, three strategic priorities emerge. First, Tinder should expand its App Store
 Optimization (ASO) strategy beyond generic keywords to include more intent-driven and relationship-focused queries,
